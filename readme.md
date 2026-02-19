@@ -3,7 +3,7 @@
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
 
-Este repositório contém o material suplementar, códigos e tutoriais práticos referentes ao capítulo **"Potenciais Interatômicos de Aprendizado de Máquina: Da Mecânica Quântica à Dinâmica Molecular"**, publicado nos anais do [Nome do Evento/Livro]. 
+Este repositório contém o material suplementar, códigos e tutoriais práticos referentes ao capítulo **"Potenciais Interatômicos de Aprendizado de Máquina: Um Guia Computacional"**, publicado nos anais do [Nome do Evento/Livro]. 
 
 O objetivo deste material é fornecer um guia prático ("*hands-on*") para a construção de um Campo de Força de Rede Neural (NNFF) para a água líquida, utilizando o método *Deep Potential* implementado no pacote computacional **DeepMD-kit**, e sua posterior aplicação em simulações de Dinâmica Molecular usando o **LAMMPS**.
 
