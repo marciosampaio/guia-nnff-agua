@@ -1,6 +1,5 @@
 # Potenciais Interatômicos de Aprendizado de Máquina: Da Mecânica Quântica à Dinâmica Molecular 💧🤖
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
 
