@@ -1,4 +1,4 @@
-# Potenciais Interatômicos de Aprendizado de Máquina: Da Mecânica Quântica à Dinâmica Molecular 💧🤖
+# Potenciais Interatômicos de Aprendizado de Máquina: Um Guia Computacional 💧🤖
 
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
