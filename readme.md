@@ -23,15 +23,9 @@ O fluxo de trabalho está dividido em três etapas lógicas, refletindo a metodo
 
 ## ⚙️ Pré-requisitos e Instalação
 
-Para reproduzir este tutorial, você precisará de um ambiente Linux (testado em distribuições como Ubuntu/Mint) com os seguintes pacotes instalados:
+ Infomações atualizadas sobre a instação do DeePMD-Kit e do LAMMPS, acesse:
 
-* [Anaconda](https://www.anaconda.com/) ou Miniconda
 * [DeepMD-kit](https://github.com/deepmodeling/deepmd-kit) (CPU ou GPU)
 * [LAMMPS](https://docs.lammps.org/Manual.html) compilado com suporte ao pacote `USER-DEEPMD`
 * Python 3.x (Bibliotecas: `numpy`, `matplotlib`, `dpdata`)
 
-Recomendamos a instalação via `conda` para facilitar o gerenciamento de dependências:
-
-```bash
-conda create -n deepmd-env dp-vari -c deepmodeling
-conda activate deepmd-env
