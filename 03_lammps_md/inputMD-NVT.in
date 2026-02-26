@@ -1,0 +1,122 @@
+# ===================================================================
+#                           L A M M P S   I N P U T
+# ===================================================================
+#
+#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   System         : H2O (DPMD)
+#   Ensemble       : NVT (NVE + Langevin thermostat)
+#
+# -------------------------------------------------------------------
+#   Input / Output
+# -------------------------------------------------------------------
+#   • Restart file        : ../equilibration/prod.restart.NVT.300
+#   • DeepMD model        : ../../model/graph-compress.pb
+#   • Trajectory output   : prod.NVT.water.lammpstrj
+#   • Thermo output       : thermo.NVT.out
+#   • Restart output      : prod.restart.NVT.${T}
+#
+#   • Standard execution  : lmp -in inputMD-NVT.in -var seed 31383 -var Temp 300
+#
+# -------------------------------------------------------------------
+#   Authors  : Tainá C. Alves and Márcio S. Gomes Filho
+#   Version  : 1.0
+#   Year     : 2026
+# ===================================================================
+
+
+#####################################################################
+# ----------------------- GENERAL VARIABLES -------------------------
+#####################################################################
+
+# Temperature and random seeds
+variable        T           equal ${Temp}
+variable        Seedt       equal round(random(0,999999,${seed}))
+
+# Time control variables
+variable        dt          equal 0.5e-3          # Time step (ps) = 0.5 fs
+variable        t_end       equal 2000.0          # Total simulation time (ps)
+variable        n_steps     equal floor(${t_end}/${dt})
+variable        out_freq    equal 50              # Output frequency (steps)
+
+
+#####################################################################
+# ----------------------- ATOMIC SETUP ------------------------------
+#####################################################################
+
+units           metal                           # Metal units (time in ps)
+boundary        p p p                           # Periodic boundary conditions
+atom_style      atomic
+
+# Read equilibrated configuration
+read_restart    ../equilibration/prod.restart.NVT.300
+
+group           water type 1 2
+
+
+#####################################################################
+# ----------------------- DEEPMD POTENTIAL --------------------------
+#####################################################################
+
+# NOTE: Update model path when necessary
+pair_style      deepmd ../../model/graph-compress.pb
+pair_coeff      * *
+
+neighbor        1.7 bin
+neigh_modify    every 1 delay 0 check yes
+
+timestep        ${dt}
+reset_timestep  0
+
+
+#####################################################################
+# ----------------------- THERMALIZATION (NVT) ----------------------
+#####################################################################
+
+# Damping parameters
+variable        tdamp equal 100*${dt}
+variable        pdamp equal 1000*${dt}
+
+# Time integration
+fix             nve all nve
+fix             langevin all langevin ${T} ${T} ${tdamp} ${Seedt} zero yes
+
+
+#####################################################################
+# ----------------------- THERMODYNAMIC OUTPUT ----------------------
+#####################################################################
+
+variable volume      equal vol
+variable lx          equal lx
+variable ly          equal ly
+variable lz          equal lz
+variable temp        equal temp
+variable energy      equal pe
+variable etotal      equal etotal
+variable pressure    equal press/10000   # Convert to GPa
+variable step        equal step
+variable time        equal time
+
+fix thermo_print1 all print ${out_freq} \
+"${time} ${step} ${temp} ${pressure} ${energy} ${etotal} ${volume} ${lx} ${ly} ${lz}" \
+file thermo.NVT.out screen no \
+title "#time step temp press epot etotal volume lx ly lz"
+
+
+#####################################################################
+# ----------------------- TRAJECTORY OUTPUT -------------------------
+#####################################################################
+
+dump            waterDump water custom ${out_freq} \
+                prod.NVT.water.lammpstrj \
+                id type xu yu zu vx vy vz
+
+dump_modify     waterDump sort id
+
+write_restart   prod.restart.NVT.${T}
+
+
+#####################################################################
+# ----------------------- PRODUCTION RUN ----------------------------
+#####################################################################
+
+run             ${n_steps}

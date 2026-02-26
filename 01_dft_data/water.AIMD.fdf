@@ -1,0 +1,168 @@
+# ===================================================================
+#                           S I E S T A   I N P U T
+# ===================================================================
+#
+#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   System         : H2O (192 atoms, cubic cell)
+#   Ensemble       : NPT  (Nose thermostat + Parrinello–Rahman barostat)
+#
+# -------------------------------------------------------------------
+#   Input / Output
+# -------------------------------------------------------------------
+#   • Main input file      : water.fdf
+#   • Geometry file        : geom.in
+#   • Standard execution   : siesta < water.fdf > water.out
+#
+# -------------------------------------------------------------------
+#   Authors  : Tainá C. Alves and Márcio S. Gomes Filho
+#   Version : 1.0
+#   Year    : 2026
+# ===================================================================
+
+#####################################################################
+# ----------------------- SYSTEM INFORMATION ------------------------
+#####################################################################
+
+SystemName          water        # Descriptive name of the system
+SystemLabel         water        # Prefix for output files
+
+NumberOfAtoms       192          # Total number of atoms in the simulation cell
+NumberOfSpecies     2            # Number of chemical species (O and H)
+
+#####################################################################
+# ----------------------- SPECIES DEFINITION ------------------------
+#####################################################################
+
+%block ChemicalSpeciesLabel
+  1   8  O    # Index 1 → Atomic number 8 → Oxygen
+  2   1  H    # Index 2 → Atomic number 1 → Hydrogen
+%endblock ChemicalSpeciesLabel
+
+
+#####################################################################
+# ----------------------- SIMULATION CELL ---------------------------
+#####################################################################
+
+LatticeConstant     12.43 Ang    # Cubic cell length
+
+%block LatticeVectors
+  1.0  0.0  0.0
+  0.0  1.0  0.0
+  0.0  0.0  1.0
+%endblock LatticeVectors
+# Unit vectors → cubic cell of 12.43 × 12.43 × 12.43 Å³
+
+
+#####################################################################
+# ----------------------- ATOMIC POSITIONS --------------------------
+#####################################################################
+
+AtomicCoordinatesFormat Ang      # Coordinates given in Angstrom
+
+%block AtomicCoordinatesAndAtomicSpecies < geom.in
+# Geometry read from external file "geom.in"
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+#####################################################################
+# ---------------- EXCHANGE–CORRELATION FUNCTIONAL ------------------
+#####################################################################
+
+xc.functional       VDW          # van der Waals density functional
+xc.authors          BH           # Berland–Hyldgaard vdW functional
+
+
+#####################################################################
+# ----------------------- NUMERICAL PARAMETERS ----------------------
+#####################################################################
+
+MeshCutoff          500 Ry       # Real-space grid cutoff
+
+DM.UseSaveDM        yes          # Reuse density matrix if available
+MD.UseSaveXV        yes          # Reuse positions/velocities
+UseSaveData         yes          # Save intermediate data
+
+
+#####################################################################
+# ----------------------- ATOMIC BASIS SET (PAO) --------------------
+#####################################################################
+
+PAO.BasisType       split        # Split-valence basis type
+
+%Block PAO.Basis
+# Optimized basis (Marivi)
+
+# ---------------- Oxygen ----------------
+O     3     -0.24233
+n=2   0   2   E    23.36061     3.39721
+     4.50769     2.64066
+     1.00000     1.00000
+n=2   1   2   E     2.78334     5.14253
+     6.14996     2.59356
+     1.00000     1.00000
+n=3   2   1   E    63.98188     0.16104
+     3.54403
+     1.00000
+
+# ---------------- Hydrogen ----------------
+H 2      0.46527
+n=1   0   2   E    99.93138     2.59932
+     4.20357     1.84463
+     1.00000     1.00000
+n=2   1   1   E    24.56504     2.20231
+     3.5281
+     1.00000
+
+%EndBlock PAO.Basis
+
+
+#####################################################################
+# ----------------------- ELECTRONIC SOLUTION -----------------------
+#####################################################################
+
+SolutionMethod          Diagon      # Solve KS equations by diagonalization
+Diag.MRRR               yes         # Efficient eigenvalue solver
+Diag.Memory             2           # Allocated memory (GB)
+
+SCF.Mixer.Method        Pulay       # SCF mixing scheme
+SCF.Mixer.Weight        0.3         # Mixing weight
+SCF.Mixer.History       7           # Number of previous steps stored
+MaxSCFIterations        200         # Maximum SCF iterations
+ElectronicTemperature   300 K       # Electronic smearing temperature
+
+DM.Tolerance            1.d-6       # Density matrix convergence criterion
+
+
+#####################################################################
+# ----------------------- MOLECULAR DYNAMICS (NPT) ------------------
+#####################################################################
+
+MD.TypeOfRun            NoseParrinelloRahman
+# NPT molecular dynamics:
+# - Nose thermostat (temperature control)
+# - Parrinello–Rahman barostat (pressure control)
+
+MD.InitialTimeStep      1
+MD.FinalTimeStep        20000
+MD.LengthTimeStep       0.5 fs      # Integration time step (0.5 fs)
+
+# -------- Temperature Control --------
+MD.NoseMass             100 Ry*fs**2
+MD.InitialTemperature   300 K
+MD.TargetTemperature    300 K
+
+# -------- Pressure Control --------
+MD.ParrinelloRahmanMass 200 Ry*fs**2
+MD.TargetPressure       0.000101325 GPa   # 1 atm in GPa
+
+
+#####################################################################
+# ----------------------- OUTPUT FILES ------------------------------
+#####################################################################
+
+LongOutput          yes     # Detailed output
+WriteCoorXmol       yes     # Coordinates in XMOL format
+WriteMDXmol         yes     # MD trajectory in XMOL format
+WriteMDHistory      yes     # Complete MD history
+WriteCoorStep       yes     # Coordinates at each step
+WriteForces         yes     # Atomic forces
