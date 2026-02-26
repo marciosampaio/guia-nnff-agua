@@ -1,31 +1,35 @@
-# Potenciais Interatômicos de Aprendizado de Máquina: Um Guia Computacional 💧🤖
+# Machine Learning Interatomic Potentials: A Computational Guide 💧🤖
 
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
 
-Este repositório contém o material suplementar, códigos e tutoriais práticos referentes ao capítulo **"Potenciais Interatômicos de Aprendizado de Máquina: Um Guia Computacional"**, publicado nos anais do [Nome do Evento/Livro]. 
+This repository contains the supplementary material, codes, and practical tutorials related to the chapter **"Machine Learning Interatomic Potentials: A Computational Guide"**, published in the proceedings of "2nd ICP Workshop on Quantum and Statistical Physics".
 
-O objetivo deste material é fornecer um guia prático ("*hands-on*") para a construção de um Campo de Força de Rede Neural (NNFF) para a água líquida, utilizando o método *Deep Potential* implementado no pacote computacional **DeepMD-kit**, e sua posterior aplicação em simulações de Dinâmica Molecular usando o **LAMMPS**.
-
-## 👥 Autores
-* **Tainá C. Alves** - [Instituição da Tainá]
-* **Márcio S. Gomes-Filho** - [Sua Instituição]
+The goal of this material is to provide a practical (*hands-on*) guide for building a Neural Network Force Field (NNFF) for liquid water using the *Deep Potential* method implemented in the **DeepMD-kit** computational package, and its subsequent application in Molecular Dynamics simulations using **LAMMPS**.
 
 ---
 
-## 📂 Estrutura do Repositório
+## 👥 Authors
 
-O fluxo de trabalho está dividido em três etapas lógicas, refletindo a metodologia discutida no texto principal:
+* **Tainá C. Alves** – UFABC
+* **Márcio S. Gomes-Filho** – UFABC
 
-* `01_dft_data/`: Contém os *scripts* e parâmetros utilizados para a geração dos dados de referência *ab initio* (Teoria do Funcional da Densidade).
-* `02_deepmd_train/`: Contém os *scripts* de conversão de dados, o arquivo de configuração `input.json` e os arquivos necessários para treinar a rede neural.
-* `03_lammps_md/`: Contém o *script* de *input* do LAMMPS (`in.water`) configurado para utilizar o potencial gerado (`graph.pb`), bem como *scripts* de análise (Python/Bash) para extrair propriedades estruturais e dinâmicas (ex: Função de Distribuição Radial).
+---
 
-## ⚙️ Pré-requisitos e Instalação
+## 📂 Repository Structure
 
- Infomações atualizadas sobre a instação do DeePMD-Kit e do LAMMPS, acesse:
+The workflow is divided into three logical stages, reflecting the methodology discussed in the main text:
 
-* [DeepMD-kit](https://github.com/deepmodeling/deepmd-kit) (CPU ou GPU)
-* [LAMMPS](https://docs.lammps.org/Manual.html) compilado com suporte ao pacote `USER-DEEPMD`
-* Python 3.x (Bibliotecas: `numpy`, `matplotlib`, `dpdata`)
+* `01_dft_data/`: Contains the scripts and parameters used to generate the *ab initio* reference data (Density Functional Theory).
+* `02_deepmd_train/`: Contains the data conversion scripts, the `input.json` configuration file, and the necessary files to train the neural network.
+* `03_lammps_md/`: Contains the LAMMPS input script (`in.water`) configured to use the generated potential (`graph.pb`), as well as analysis scripts (Python/Bash) to extract structural and dynamical properties (e.g., Radial Distribution Function).
 
+---
+
+## ⚙️ Requirements and Installation
+
+For updated information about installing DeepMD-kit and LAMMPS, please visit:
+
+* [DeepMD-kit](https://github.com/deepmodeling/deepmd-kit) (CPU or GPU version)
+* [LAMMPS](https://docs.lammps.org/Manual.html) compiled with support for the `USER-DEEPMD` package
+* Python 3.x (Libraries: `numpy`, `matplotlib`, `dpdata`)
