@@ -11,8 +11,8 @@ The goal of this material is to provide a practical (*hands-on*) guide for build
 
 ## 👥 Authors
 
-* **Tainá C. Alves** – UFABC
-* **Márcio S. Gomes-Filho** – UFABC
+* **Tainá C. Alves** – Federal University of ABC (UFABC)
+* **Márcio S. Gomes-Filho** – Federal University of ABC (UFABC)
 
 ---
 
