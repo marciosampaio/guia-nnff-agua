@@ -9,7 +9,7 @@ The calculations are performed using **SIESTA (DFT-based AIMD)**.
 
 ## ⚙️ Workflow
 
-1️⃣ Prepare atomic geometry
+1️⃣ Prepare atomic geometry  
 2️⃣ Run AIMD simulation in SIESTA
 
 ---
@@ -30,15 +30,17 @@ The calculations are performed using **SIESTA (DFT-based AIMD)**.
 
 ## 📂 Directory Structure
 
-01_preprocessing/
+01_preprocessing/  
     └── xyz_to_geom.py → Converts .xyz file into geom.in (SIESTA format)
 
-02_runAIMD/
-    ├── water.AIMD.fdf → Main SIESTA input file
-    ├── H.psf          → Hydrogen pseudopotential
+02_runAIMD/  
+    ├── water.AIMD.fdf → Main SIESTA input file  
+    ├── H.psf          → Hydrogen pseudopotential  
     └── O.psf          → Oxygen pseudopotential
 
 ---
+
+## 🚀 COMPLETE WORKFLOW
 
 ## 1️⃣ Prepare Geometry
 
@@ -76,7 +78,7 @@ Make sure H.psf and O.psf are present in the same directory.
 
 ## 3️⃣ Output Files
 
-Main outputs:
+📊 Main outputs:
 
 - water.out        → Energies and SCF information
 - *.XV             → Atomic coordinates
