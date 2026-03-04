@@ -1,4 +1,4 @@
-# Machine Learning Interatomic Potentials: A Computational Guide 💧🤖
+#  Machine Learning Interatomic Potentials: A Computational Guide Applied to Liquid Water💧🤖
 
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
