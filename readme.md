@@ -3,7 +3,7 @@
 [![DeepMD-kit](https://img.shields.io/badge/DeepMD--kit-v2.2-blue)](https://github.com/deepmodeling/deepmd-kit)
 [![LAMMPS](https://img.shields.io/badge/LAMMPS-Compatible-green)](https://www.lammps.org/)
 
-This repository contains the supplementary material, codes, and practical tutorials related to the chapter **"Machine Learning Potentials: A Computational Guide"**, published in the proceedings of "2nd ICP Workshop on Quantum and Statistical Physics".
+This repository contains the supplementary material, codes, and practical tutorials related to the chapter **"Machine Learning Potentials: A Computational Guide Applied to Liquid Water"**, published in the proceedings of "2nd ICP Workshop on Quantum and Statistical Physics".
 
 The goal of this material is to provide a practical (*hands-on*) guide for building a Neural Network Force Field (NNFF) for liquid water using the *Deep Potential* method implemented in the **DeepMD-kit** computational package, and its subsequent application in Molecular Dynamics simulations using **LAMMPS**.
 

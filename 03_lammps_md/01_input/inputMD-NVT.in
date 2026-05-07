@@ -2,7 +2,7 @@
 #                           L A M M P S   I N P U T
 # ===================================================================
 #
-#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project        : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   System         : H2O (DPMD)
 #   Ensemble       : NVT (NVE + Langevin thermostat)
 #
@@ -10,7 +10,7 @@
 #   Input / Output
 # -------------------------------------------------------------------
 #   • Restart file        : ../equilibration/prod.restart.NVT.300
-#   • DeepMD model        : ../../model/graph-compress.pb
+#   • DeepMD model        : ../../02_deepmd_train/03_training/graph-compress.pb
 #   • Trajectory output   : prod.NVT.water.lammpstrj
 #   • Thermo output       : thermo.NVT.out
 #   • Restart output      : prod.restart.NVT.${T}
@@ -58,7 +58,7 @@ group           water type 1 2
 #####################################################################
 
 # NOTE: Update model path when necessary
-pair_style      deepmd ../../model/graph-compress.pb
+pair_style      deepmd ../../02_deepmd_train/03_training/graph-compress.pb
 pair_coeff      * *
 
 neighbor        1.7 bin

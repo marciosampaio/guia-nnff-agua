@@ -2,7 +2,7 @@
 #                           S I E S T A   I N P U T
 # ===================================================================
 #
-#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project        : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   System         : H2O (192 atoms, cubic cell)
 #   Ensemble       : NPT  (Nose thermostat + Parrinello–Rahman barostat)
 #

@@ -2,7 +2,7 @@
 #                D E E P M D   D A T A   P R E P A R A T I O N
 # ===================================================================
 #
-#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project        : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   System         : H2O Dataset (DeepMD raw format)
 #   Purpose        : Train / Validation split
 #

@@ -2,7 +2,7 @@
 #                   G E O M E T R Y   C O N V E R T E R
 # ===================================================================
 #
-#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project        : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   Purpose        : Generate SIESTA geom.in from XYZ file
 #
 #   Input file     : water.xyz

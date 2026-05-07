@@ -4,7 +4,7 @@
 #                   R D F   G N U P L O T   S C R I P T
 # ===================================================================
 #
-#   Project        : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project        : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   System         : Liquid Water (512 molecules)
 #   Property       : Radial Distribution Functions (RDF)
 #

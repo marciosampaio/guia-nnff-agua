@@ -2,7 +2,7 @@
 #                 D E E P M D   D A T A   C O N V E R S I O N
 # ===================================================================
 #
-#   Project   : Machine Learning Interatomic Potentials: A Computational Guide
+#   Project   : Machine Learning Potentials: A Computational Guide Applied to Liquid Water
 #   System    : H2O – AIMD (SIESTA)
 #   Purpose   : Convert SIESTA AIMD output to DeepMD raw format
 #

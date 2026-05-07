@@ -2,7 +2,7 @@
     "===================================================================": "",
     " D E E P M D   T R A I N I N G   C O N F I G U R A T I O N": "",
     "===================================================================": "",
-    "Project": "Machine Learning Interatomic Potentials: A Computational Guide",
+    "Project": "Machine Learning Potentials: A Computational Guide Applied to Liquid Water",
     "System": "H2O (T = 300K, 330K, 350K)",
     "Purpose": "Deep Neural Network training configuration",
     "Authors": "Tainá C. Alves and Márcio S. Gomes Filho",
